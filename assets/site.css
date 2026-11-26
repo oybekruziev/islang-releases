@@ -92,11 +92,11 @@ section{padding:96px 0}
 /* the island, drawn after the real one */
 .menubar{background:rgba(10,8,18,.45);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);height:30px;font-size:12.5px;font-weight:500}
 .menubar span{align-items:center}.menubar b{font-weight:700}
-.nisl{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:3;background:#000;color:#fff;cursor:pointer;
-  width:260px;height:30px;border-radius:0 0 12px 12px;
+.nisl{--br:12px;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:3;background:#000;color:#fff;cursor:pointer;
+  width:260px;height:30px;border-radius:0 0 var(--br) var(--br);
   transition:width .55s cubic-bezier(.32,1.25,.42,1),height .55s cubic-bezier(.32,1.25,.42,1),border-radius .45s}
-.nisl[data-state="peek"]{width:420px;height:84px;border-radius:0 0 22px 22px}
-.nisl[data-state="big"]{width:62%;height:auto;aspect-ratio:680/306;border-radius:0 0 32px 32px}
+.nisl[data-state="peek"]{--br:22px;width:420px;height:84px}
+.nisl[data-state="big"]{--br:32px;width:62%;height:auto;aspect-ratio:680/306}
 .nisl .bar{position:absolute;top:0;left:0;right:0;height:30px;display:flex;align-items:center;justify-content:space-between;padding:0 16px 0 18px;transition:opacity .2s}
 .nisl[data-state="big"] .bar{opacity:0}
 .wpet{height:22px;width:auto;margin-top:1px}
@@ -509,3 +509,32 @@ footer .soc a:hover{color:var(--text)}
 }
 .ix::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(transparent,var(--night));pointer-events:none}
 .eqs i:nth-child(1){height:55%}.eqs i:nth-child(2){height:100%}.eqs i:nth-child(3){height:40%}.eqs i:nth-child(4){height:75%}
+
+/* music glow, as in the app: soft light on both sides and a little of the bottom, never the top edge;
+   it pulses like the equalizer and slowly moves through different gradients */
+@property --m{syntax:"<angle>";inherits:true;initial-value:0deg}
+.mglow{position:absolute;inset:-30px;pointer-events:none;opacity:0;transition:opacity .8s ease;z-index:-1;
+  -webkit-mask:linear-gradient(transparent 33px,#000 44px),linear-gradient(90deg,#000 22%,rgba(0,0,0,.4) 50%,#000 78%);
+  -webkit-mask-composite:source-in;
+  mask:linear-gradient(transparent 33px,#000 44px),linear-gradient(90deg,#000 22%,rgba(0,0,0,.4) 50%,#000 78%);mask-composite:intersect}
+.mglow i{position:absolute}
+.mglow b{position:absolute;inset:0;border-radius:inherit;background:conic-gradient(from var(--m),#ff7ab6,#ffb86b,#8b6bff,#5fd0ff,#7cf5c6,#ff7ab6);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+/* blur sits on the wrapper so it softens the ring after it is cut out (filter runs before mask) */
+.mglow .h{inset:24px;border-radius:0 0 calc(var(--br) + 6px) calc(var(--br) + 6px);filter:blur(9px);opacity:.6}
+.mglow .h b{padding:7px}
+.mglow .e{inset:29px;border-radius:0 0 calc(var(--br) + 1px) calc(var(--br) + 1px);opacity:.75}
+.mglow .e b{padding:1.2px}
+.nisl[data-act="music"]:not([data-state="big"]) .mglow{opacity:1}
+.nisl[data-act="music"]:not([data-state="big"]) .glow{display:none}
+@media (prefers-reduced-motion:no-preference){
+  .mglow{animation:mhue 45s linear infinite}
+  .mglow b{animation:mspin 10s linear infinite}
+  .mglow .h{animation:mbeat 1.92s ease-out infinite}
+  .mglow .e{animation:mbeat2 1.92s ease-out infinite}
+}
+@keyframes mspin{to{--m:360deg}}
+@keyframes mhue{to{filter:hue-rotate(360deg)}}
+@keyframes mbeat{0%{opacity:.75;filter:blur(12px)}12%{opacity:.4;filter:blur(9px)}25%{opacity:.68;filter:blur(11px)}37%{opacity:.38;filter:blur(9px)}
+  50%{opacity:.8;filter:blur(13px)}62%{opacity:.42;filter:blur(9px)}75%{opacity:.62;filter:blur(11px)}87%{opacity:.36;filter:blur(9px)}100%{opacity:.75;filter:blur(12px)}}
+@keyframes mbeat2{0%,50%{opacity:.85}12%,62%{opacity:.55}25%,75%{opacity:.75}37%,87%{opacity:.5}100%{opacity:.85}}

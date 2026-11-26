@@ -27,9 +27,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=1795716600">
+<link rel="stylesheet" href="/assets/site.css?v=1795720000">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Islang","operatingSystem":"macOS 14 or later","applicationCategory":"UtilitiesApplication","description":"A live island for the MacBook notch with music controls, calendar, focus timer, AirPods battery, a shared clipboard and pixel pets.","url":"https://islang.xyz/","image":"https://islang.xyz/img/og.jpg","softwareVersion":"0.20","author":{"@type":"Person","name":"Oybek Ruziev","url":"https://aidancreates.space","sameAs":["https://x.com/aidan_creates","https://instagram.com/ruziev_oybek_","https://threads.com/@ruziev_oybek_","https://youtube.com/@aidancreatesspace","https://linkedin.com/in/oybekruziev","https://github.com/oybekruziev"]},"offers":{"@type":"Offer","price":"4.99","priceCurrency":"USD","url":"https://buy.polar.sh/polar_cl_jzejOnnoJKnUOzVvu8drq5IjTSCk9HWBKVAUm0XifPE"}}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Islang","operatingSystem":"macOS 14 or later","applicationCategory":"UtilitiesApplication","description":"A live island for the MacBook notch with music controls, calendar, focus timer, AirPods battery, a shared clipboard and pixel pets.","url":"https://islang.xyz/","image":"https://islang.xyz/img/og.jpg","softwareVersion":"0.21","author":{"@type":"Person","name":"Oybek Ruziev","url":"https://aidancreates.space","sameAs":["https://x.com/aidan_creates","https://instagram.com/ruziev_oybek_","https://threads.com/@ruziev_oybek_","https://youtube.com/@aidancreatesspace","https://linkedin.com/in/oybekruziev","https://github.com/oybekruziev"]},"offers":{"@type":"Offer","price":"4.99","priceCurrency":"USD","url":"https://buy.polar.sh/polar_cl_jzejOnnoJKnUOzVvu8drq5IjTSCk9HWBKVAUm0XifPE"}}
 </script>
 </head>
 <body>
@@ -51,12 +51,12 @@
 <main id="main">
 <section class="hero">
   <div class="wrap">
-    <a class="news" href="/changelog/#v0.20"><span>New</span>Islang 0.20: scrub through any video</a>
+    <a class="news" href="/changelog/#v0.21"><span>New</span>Islang 0.21: the island glows with your music</a>
     <h1>Your notch,<br><em>finally alive.</em></h1>
     <p class="lead">Islang turns the black strip at the top of your Mac into a live island. Music, meetings, focus and AirPods show up right where your eyes already are.</p>
     <div class="row">
       <a class="btn primary" href="https://buy.polar.sh/polar_cl_jzejOnnoJKnUOzVvu8drq5IjTSCk9HWBKVAUm0XifPE"><svg class="apl" viewBox="0 0 17 20" fill="currentColor" aria-hidden="true"><path d="M14 10.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9C3.5 4.8 1.8 5.8.9 7.4c-1.9 3.3-.5 8.1 1.3 10.8.9 1.3 1.9 2.7 3.3 2.7 1.3-.1 1.8-.9 3.4-.9s2 .9 3.4.8c1.4 0 2.3-1.3 3.2-2.6 1-1.5 1.4-2.9 1.4-3-.1 0-2.8-1.1-2.9-4.6zM11.4 2.9c.7-.9 1.2-2.1 1.1-3.3-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.2 1.1.1 2.3-.6 3-1.5z"/></svg>Buy for $4.99</a>
-      <a class="btn ghost" data-dl href="https://github.com/oybekruziev/islang-releases/releases/download/v0.20/Islang-0.20.dmg">
+      <a class="btn ghost" data-dl href="https://github.com/oybekruziev/islang-releases/releases/download/v0.21/Islang-0.21.dmg">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 19h16"/></svg>Download for Mac</a>
     </div>
     <p class="fine">One-time $4.99. Apple silicon and Intel. macOS 14 or later, with or without a notch.</p>
@@ -70,6 +70,7 @@
       </div>
       <div class="nisl" id="isl" data-state="idle" role="img" aria-label="Islang island demo">
         <div class="glow" aria-hidden="true"></div>
+        <div class="mglow" aria-hidden="true"><i class="h"><b></b></i><i class="e"><b></b></i></div>
         <div class="bar">
           <img class="wpet px" src="/img/wing-cat.webp" alt="">
           <span class="rs">
@@ -288,8 +289,10 @@
     </div>
     <div class="log">
       <article class="ver">
-        <header><h3>0.20 <span class="tag">Latest</span></h3><time datetime="2026-11-26">November 26, 2026</time></header>
+        <header><h3>0.21 <span class="tag">Latest</span></h3><time datetime="2026-11-26">November 26, 2026</time></header>
         <ul>
+          <li>While music plays, a soft light runs along both sides of the island and pulses with the beat.</li>
+          <li>Pick a glow style, its rhythm and brightness in Settings, or turn it off.</li>
           <li>Click or drag the progress bar to jump anywhere in a song or video.</li>
           <li>The ±15 s buttons work for YouTube and other videos in the browser.</li>
           <li>Brighter theme pictures, and themes and seasons as two separate groups.</li>
@@ -366,7 +369,7 @@
       <p class="lead">Install it, pick a pet, and the island is there. It takes about a minute.</p>
       <div class="fin-cta">
         <div class="buywrap"><a class="btn primary buy" href="https://buy.polar.sh/polar_cl_jzejOnnoJKnUOzVvu8drq5IjTSCk9HWBKVAUm0XifPE">Buy Islang for $4.99</a></div>
-        <a class="btn ghost big" data-dl href="https://github.com/oybekruziev/islang-releases/releases/download/v0.20/Islang-0.20.dmg">Download for Mac</a>
+        <a class="btn ghost big" data-dl href="https://github.com/oybekruziev/islang-releases/releases/download/v0.21/Islang-0.21.dmg">Download for Mac</a>
       </div>
       <p class="fin-fine">One-time payment. 14-day refund. macOS 14 or later.</p>
       <div class="fin-pets" aria-hidden="true">
