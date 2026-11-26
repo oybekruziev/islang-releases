@@ -320,3 +320,7 @@ footer .soc a:hover{color:var(--text)}
   .deal .amount{font-size:96px}
 }
 @media (max-width:420px){.got{grid-template-columns:1fr}}
+
+.promise{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:13.5px;color:#7ee2a8;background:rgba(48,209,88,.08);border:1px solid rgba(48,209,88,.2);border-radius:999px;padding:6px 14px}
+.promise svg{width:15px;height:15px}
+.hero .fine{display:block}
