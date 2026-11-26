@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=1795696300">
+<link rel="stylesheet" href="/assets/site.css?v=1795716000">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Islang","operatingSystem":"macOS 14 or later","applicationCategory":"UtilitiesApplication","description":"A live island for the MacBook notch with music controls, calendar, focus timer, AirPods battery, a shared clipboard and pixel pets.","url":"https://islang.xyz/","image":"https://islang.xyz/img/og.jpg","softwareVersion":"0.19","author":{"@type":"Person","name":"Oybek Ruziev","url":"https://aidancreates.space","sameAs":["https://x.com/aidan_creates","https://instagram.com/ruziev_oybek_","https://threads.com/@ruziev_oybek_","https://youtube.com/@aidancreatesspace","https://linkedin.com/in/oybekruziev","https://github.com/oybekruziev"]},"offers":{"@type":"Offer","price":"4.99","priceCurrency":"USD","url":"https://buy.polar.sh/polar_cl_jzejOnnoJKnUOzVvu8drq5IjTSCk9HWBKVAUm0XifPE"}}
 </script>
@@ -127,44 +127,69 @@
       <article class="card">
         <h3>Music</h3>
         <p>Spotify, Apple Music and the browser. Play, skip, shuffle, repeat and love a track.</p>
-        <div class="viz"><div class="mini col">
-          <div style="display:flex;gap:10px;align-items:center"><div class="art" style="width:38px;height:38px;border-radius:10px"></div><div><div class="t1">Morning Light</div><div class="t2">Lo-fi Café</div></div><div class="eq"><i></i><i></i><i></i><i></i></div></div>
-          <div class="bar"><b></b></div>
+        <div class="viz"><div class="mini col fx-music" data-fx="music" role="img" aria-label="Now playing card with a moving progress bar">
+          <div class="fm-top"><div class="fm-art"></div><div class="fm-tx"><div class="t1">Morning Light</div><div class="t2">Lo-fi Café</div></div><div class="eqs" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+          <div class="fm-prog"><span data-cur>1:12</span><div class="fm-bar"><b></b></div><span>3:24</span></div>
+          <div class="fm-ctl" aria-hidden="true">
+            <svg class="sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg>
+            <span class="fm-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></span>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg>
+            <svg class="sm fm-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"/></svg>
+          </div>
         </div></div>
       </article>
       <article class="card">
         <h3>Calendar</h3>
         <p>Today's meetings in the notch, with a Join button when a call is about to start.</p>
-        <div class="viz"><div class="mini col">
-          <div class="cal"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><b>24</b><b>25</b><b class="today">26</b><b>27</b><b>28</b><b>29</b><b>30</b></div>
-          <div class="evt"><i></i><div><div>Design review</div><div class="t2">10:30, in 4 min</div></div><span class="join">Join</span></div>
+        <div class="viz"><div class="mini col fx-cal" data-fx="cal" role="img" aria-label="This week's calendar with a meeting about to start">
+          <div class="cal" data-week><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><b>24</b><b>25</b><b class="today">26</b><b>27</b><b>28</b><b>29</b><b>30</b></div>
+          <div class="evt"><i></i><div><div>Design review</div><div class="t2" data-when>10:30, in 4 min</div></div><span class="join">Join</span></div>
+          <div class="evt dim"><i style="background:#30d158"></i><div><div>Lunch with Aziz</div><div class="t2">13:00 to 14:00</div></div></div>
         </div></div>
       </article>
       <article class="card">
         <h3>Focus</h3>
         <p>A Pomodoro timer that lives in the notch and keeps your Mac awake while you work.</p>
-        <div class="viz"><div class="mini"><div class="ring"></div><div><div class="t1">Deep work</div><div class="t2">Round 2 of 4</div></div><div class="timer">24:12</div></div></div>
+        <div class="viz"><div class="mini fx-focus" data-fx="focus" role="img" aria-label="Focus timer counting down">
+          <div class="ff-ring" style="--p:.03"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9f0a" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="13" r="7"/><path d="M12 9.5V13l2 1.6M9.5 3h5"/></svg></div>
+          <div class="ff-tx"><div class="t1">Deep work</div><div class="t2">Round 2 of 4</div><div class="ff-dots"><i class="on"></i><i class="cur"></i><i></i><i></i></div></div>
+          <div class="ff-r"><div class="timer" data-timer>24:12</div><div class="awake"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 3v3M12 3v3"/></svg>Awake</div></div>
+        </div></div>
       </article>
       <article class="card">
         <h3>Clipboard and friends</h3>
         <p>Your last copies, one click away. Send text or a file to a friend's notch by email.</p>
-        <div class="viz"><div class="mini col">
-          <div class="clip"><span class="ic">Aa</span>Meeting notes for Friday</div>
-          <div class="clip"><span class="ic">↗</span>islang.xyz/changelog</div>
-          <div class="clip"><span class="ic">S</span>Sardor sent brief.pdf</div>
+        <div class="viz"><div class="mini col fx-clip" data-fx="clip" role="img" aria-label="Clipboard history with new copies arriving">
+          <div class="clip"><span class="ic">S</span><span class="ct">Sardor sent brief.pdf</span><span class="open">Open</span></div>
+          <div class="clip"><span class="ic">Aa</span><span class="ct">Meeting notes for Friday</span></div>
+          <div class="clip"><span class="ic">↗</span><span class="ct">islang.xyz/changelog</span></div>
         </div></div>
       </article>
       <article class="card">
         <h3>Pixel pets</h3>
         <p>Six tiny friends walk the edge of your screen, sleep when you're away and cheer when you finish focus.</p>
-        <div class="viz"><img class="px" src="/img/panda.webp" alt="Pixel panda" style="width:70%;max-width:220px" loading="lazy"></div>
+        <div class="viz"><div class="fx-pets" data-fx="pets" role="img" aria-label="Pixel pets walking, sleeping and cheering">
+          <img class="pw fox px" src="/img/fox.webp" alt="" loading="lazy">
+          <img class="pw dog px" src="/img/dog.webp" alt="" loading="lazy">
+          <div class="sleeper"><img class="px" src="/img/cat.webp" alt="" loading="lazy"><span class="zz" aria-hidden="true"><i>z</i><i>z</i><i>z</i></span></div>
+          <div class="cheer"><img class="px" src="/img/penguin.webp" alt="" loading="lazy"><span class="conf" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          <div class="edge"></div>
+        </div></div>
       </article>
       <article class="card">
         <h3>AirPods and HUD</h3>
         <p>Battery for each bud and the case on connect. Volume and brightness show in the notch, not mid-screen.</p>
-        <div class="viz"><div class="mini col">
-          <div class="hud"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7"/></svg><div class="bar"><b></b></div></div>
-          <div class="hud"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><div class="bar"><b style="width:80%;background:#ffd166"></b></div></div>
+        <div class="viz"><div class="mini col fx-hud" data-fx="hud" role="img" aria-label="AirPods battery levels and a volume bar">
+          <div class="fa">
+            <svg class="pods" viewBox="0 0 24 24" fill="#fff"><path d="M6.5 3A3.5 3.5 0 0 0 3 6.5v1A3.5 3.5 0 0 0 6.5 11c.6 0 1-.1 1.5-.3V20a1.5 1.5 0 0 0 3 0V6.5A3.5 3.5 0 0 0 7.5 3zM17.5 3A3.5 3.5 0 0 0 14 6.5V20a1.5 1.5 0 0 0 3 0v-9.3c.5.2.9.3 1.5.3A3.5 3.5 0 0 0 22 7.5v-1A3.5 3.5 0 0 0 18.5 3z"/></svg>
+            <div class="fa-n"><div class="t1">AirPods Pro</div><div class="t2">Connected</div></div>
+            </div><div class="bats"><div class="bat" style="--v:.82"><b></b><span>L 82%</span></div>
+            <div class="bat" style="--v:.79"><b></b><span>R 79%</span></div>
+            <div class="bat" style="--v:.64"><b></b><span>Case 64%</span></div>
+          </div>
+          <div class="hud"><svg viewBox="0 0 24 24" fill="#fff"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path d="M15.5 8.5a5 5 0 0 1 0 7" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg><div class="lvl"><b data-vol></b></div><span class="num" data-voln>62</span></div>
+          <div class="hud"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><div class="lvl"><b data-bri style="width:80%;background:#ffd166"></b></div><span class="num" data-brin>80</span></div>
         </div></div>
       </article>
     </div>
@@ -366,6 +391,7 @@ document.querySelectorAll('.faq details').forEach(d=>{
   });
 });
 </script>
+<script src="/assets/fx.js?v=1" defer></script>
 <script src="/assets/t.js" defer></script>
 </body>
 </html>
