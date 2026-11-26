@@ -96,7 +96,7 @@ section{padding:96px 0}
   width:260px;height:30px;border-radius:0 0 12px 12px;
   transition:width .55s cubic-bezier(.32,1.25,.42,1),height .55s cubic-bezier(.32,1.25,.42,1),border-radius .45s}
 .nisl[data-state="peek"]{width:420px;height:84px;border-radius:0 0 22px 22px}
-.nisl[data-state="big"]{width:62%;height:auto;aspect-ratio:1536/1196;border-radius:0 0 32px 32px}
+.nisl[data-state="big"]{width:62%;height:auto;aspect-ratio:680/306;border-radius:0 0 32px 32px}
 .nisl .bar{position:absolute;top:0;left:0;right:0;height:30px;display:flex;align-items:center;justify-content:space-between;padding:0 16px 0 18px;transition:opacity .2s}
 .nisl[data-state="big"] .bar{opacity:0}
 .wpet{height:22px;width:auto;margin-top:1px}
@@ -508,3 +508,4 @@ footer .soc a:hover{color:var(--text)}
   .ix-evt.soon span{animation:ping 1.4s ease-out infinite}
 }
 .ix::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(transparent,var(--night));pointer-events:none}
+.eqs i:nth-child(1){height:55%}.eqs i:nth-child(2){height:100%}.eqs i:nth-child(3){height:40%}.eqs i:nth-child(4){height:75%}
