@@ -27,7 +27,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/lenis.css">
 <link rel="stylesheet" href="/assets/site.css?v=1795696300">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Islang","operatingSystem":"macOS 14 or later","applicationCategory":"UtilitiesApplication","description":"A live island for the MacBook notch with music controls, calendar, focus timer, AirPods battery, a shared clipboard and pixel pets.","url":"https://islang.xyz/","image":"https://islang.xyz/img/og.jpg","softwareVersion":"0.19","author":{"@type":"Person","name":"Oybek Ruziev","url":"https://aidancreates.space","sameAs":["https://x.com/aidan_creates","https://instagram.com/ruziev_oybek_","https://threads.com/@ruziev_oybek_","https://youtube.com/@aidancreatesspace","https://linkedin.com/in/oybekruziev","https://github.com/oybekruziev"]},"offers":{"@type":"Offer","price":"4.99","priceCurrency":"USD","url":"https://buy.polar.sh/polar_cl_jzejOnnoJKnUOzVvu8drq5IjTSCk9HWBKVAUm0XifPE"}}
@@ -366,18 +365,6 @@ document.querySelectorAll('.faq details').forEach(d=>{
     }
   });
 });
-</script>
-<script src="/assets/lenis.min.js?v=1795691150"></script>
-<script>
-// smooth, weighted scrolling with Lenis (off with Reduce Motion)
-if(window.Lenis&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
-  const lenis=new Lenis({autoRaf:true,lerp:.09,wheelMultiplier:1,smoothWheel:true,anchors:false});
-  window.lenis=lenis;
-  document.querySelectorAll('a[href^="#"],a[href^="/#"]').forEach(a=>a.addEventListener('click',e=>{
-    const id=a.getAttribute('href').replace(/^\//,'');const el=id.length>1&&document.querySelector(id);
-    if(el){e.preventDefault();lenis.scrollTo(el,{offset:-72,duration:1.2});history.replaceState(null,'',id)}
-  }));
-}
 </script>
 <script src="/assets/t.js" defer></script>
 </body>
