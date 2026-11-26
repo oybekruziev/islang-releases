@@ -61,44 +61,54 @@
     <p class="fine">macOS 14 or later. Works on Macs with and without a notch.</p>
 
     <div class="stage" id="stage">
-      <div class="menubar" aria-hidden="true"><span><b></b>Finder&nbsp;&nbsp;File&nbsp;&nbsp;Edit&nbsp;&nbsp;View</span><span>Wed 9:41</span></div>
-      <div class="isl" id="isl" data-size="peek" role="img" aria-label="Islang island demo">
-        <span class="wing l" style="background:linear-gradient(135deg,#ffb07a,#7a4fd6)"></span>
-        <span class="wing r" style="background:#30d158"></span>
-        <div class="act on" data-act="music">
-          <div class="art"></div>
-          <div><div class="t1">Morning Light</div><div class="t2">Lo-fi Café</div></div>
-          <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="menubar" aria-hidden="true">
+        <span><svg width="12" height="14" viewBox="0 0 17 20" fill="currentColor"><path d="M14 10.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9C3.5 4.8 1.8 5.8.9 7.4c-1.9 3.3-.5 8.1 1.3 10.8.9 1.3 1.9 2.7 3.3 2.7 1.3-.1 1.8-.9 3.4-.9s2 .9 3.4.8c1.4 0 2.3-1.3 3.2-2.6 1-1.5 1.4-2.9 1.4-3-.1 0-2.8-1.1-2.9-4.6zM11.4 2.9c.7-.9 1.2-2.1 1.1-3.3-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.2 1.1.1 2.3-.6 3-1.5z"/></svg><b>Finder</b>File&nbsp;&nbsp;Edit&nbsp;&nbsp;View&nbsp;&nbsp;Go</span>
+        <span>Wed 26 Nov&nbsp;&nbsp;9:41</span>
+      </div>
+      <div class="nisl" id="isl" data-state="idle" role="img" aria-label="Islang island demo">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="bar">
+          <img class="wpet px" src="/img/wing-cat.webp" alt="">
+          <span class="rs">
+            <i class="dot"></i>
+            <span class="mbars"><i></i><i></i><i></i><i></i></span>
+            <span class="cnt"><i></i>1</span>
+          </span>
         </div>
-        <div class="act" data-act="message">
-          <div class="ava">S</div>
-          <div><div class="t1">Sardor</div><div class="t2">Sent you a file: brief.pdf</div></div>
-          <span class="pill">Open</span>
+        <div class="irow" data-act="message">
+          <span class="appic msg"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3C6.5 3 2 6.8 2 11.5c0 2.6 1.4 4.9 3.6 6.5L5 21.5l3.9-2.1c1 .3 2 .4 3.1.4 5.5 0 10-3.8 10-8.5S17.5 3 12 3z"/></svg></span>
+          <span class="tx"><b>Sardor</b><small>Sent you brief.pdf</small></span>
+          <span class="open">Open</span>
         </div>
-        <div class="act" data-act="focus">
-          <div class="ring"></div>
-          <div><div class="t1">Deep work</div><div class="t2">Notifications are quiet</div></div>
-          <div class="timer" data-timer>24:12</div>
+        <div class="irow" data-act="music">
+          <span class="appic art"></span>
+          <span class="tx"><b>Morning Light</b><small>Lo-fi Café</small></span>
+          <span class="mbars big"><i></i><i></i><i></i><i></i><i></i></span>
         </div>
-        <div class="act" data-act="pods">
-          <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect x="9" y="6" width="8" height="18" rx="4" fill="#fff"/><rect x="23" y="6" width="8" height="18" rx="4" fill="#fff"/><rect x="12" y="22" width="2.5" height="12" rx="1.2" fill="#fff"/><rect x="25.5" y="22" width="2.5" height="12" rx="1.2" fill="#fff"/></svg>
-          <div><div class="t1">AirPods Pro</div><div class="t2">Connected</div></div>
-          <div class="pods"><span>L <b>92%</b></span><span>R <b>88%</b></span><span>Case <b>64%</b></span></div>
+        <div class="irow" data-act="hud">
+          <svg class="spk" viewBox="0 0 24 24" fill="#fff"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <span class="tx wide"><small>MacBook Pro Speakers</small><span class="lvl"><b></b></span></span>
+          <span class="num" data-vol>62</span>
+        </div>
+        <div class="irow" data-act="agent">
+          <span class="appic ag"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="m5 8 4 4-4 4M12 16h7"/></svg></span>
+          <span class="tx"><b>Claude Code</b><small>Wants to run npm test</small></span>
+          <span class="allow">Allow</span><span class="deny">Deny</span>
         </div>
         <div class="full"><img src="/img/app-home.webp" alt="" loading="lazy"></div>
       </div>
       <img class="walker a px" src="/img/fox.webp" alt="" aria-hidden="true">
-      <img class="walker b px" src="/img/cat.webp" alt="" aria-hidden="true">
+      <img class="walker b px" src="/img/dog.webp" alt="" aria-hidden="true">
     </div>
 
     <div class="demo" role="group" aria-label="Show an activity">
-      <button aria-pressed="true" data-go="music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Music</button>
-      <button aria-pressed="false" data-go="message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Friends</button>
-      <button aria-pressed="false" data-go="focus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>Focus</button>
-      <button aria-pressed="false" data-go="pods"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>AirPods</button>
+      <button aria-pressed="false" data-go="message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Message</button>
+      <button aria-pressed="false" data-go="music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Music</button>
+      <button aria-pressed="false" data-go="hud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7"/></svg>Volume</button>
+      <button aria-pressed="false" data-go="agent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 8 4 4-4 4M12 16h7"/></svg>Agents</button>
       <button aria-pressed="false" data-go="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Open it</button>
     </div>
-    <p class="hint">Click the island or pick an activity. It plays on its own if you just watch.</p>
+    <p class="hint">This is how Islang looks on a real Mac. Click the island or pick something.</p>
   </div>
 </section>
 
@@ -251,12 +261,22 @@
 <section>
   <div class="wrap">
     <div class="final">
-      <img src="/img/dusk.jpg" alt="" loading="lazy">
-      <h2>Give your notch something to do.</h2>
-      <p class="lead">It takes a minute to set up.</p>
-      <div class="row" style="margin-top:28px">
-        <a class="btn primary" href="https://buy.polar.sh/polar_cl_jzejOnnoJKnUOzVvu8drq5IjTSCk9HWBKVAUm0XifPE">Buy for $12</a>
-        <a class="btn ghost" data-dl href="https://github.com/oybekruziev/islang-releases/releases/download/v0.10/Islang-0.10.dmg">Download for Mac</a>
+      <img class="bg" src="/img/dusk.jpg" alt="" loading="lazy">
+      <div class="fin-isl" aria-hidden="true">
+        <img class="px" src="/img/wing-cat.webp" alt="">
+        <span class="tx"><b>Islang</b><small>Ready when you are</small></span>
+        <span class="mbars big"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <img class="fin-icon" src="/icon.png" alt="" width="96" height="96">
+      <h2>Give your notch<br>something to do.</h2>
+      <p class="lead">Install it, pick a pet, and the island is there. It takes about a minute.</p>
+      <div class="fin-cta">
+        <div class="buywrap"><a class="btn primary buy" href="https://buy.polar.sh/polar_cl_jzejOnnoJKnUOzVvu8drq5IjTSCk9HWBKVAUm0XifPE">Buy Islang for $12</a></div>
+        <a class="btn ghost big" data-dl href="https://github.com/oybekruziev/islang-releases/releases/download/v0.10/Islang-0.10.dmg">Download for Mac</a>
+      </div>
+      <p class="fin-fine">One-time payment. 14-day refund. macOS 14 or later.</p>
+      <div class="fin-pets" aria-hidden="true">
+        <img class="px" src="/img/c-fox.webp" alt=""><img class="px" src="/img/c-panda.webp" alt=""><img class="px" src="/img/c-dog.webp" alt=""><img class="px" src="/img/c-penguin.webp" alt=""><img class="px" src="/img/c-giraffe.webp" alt="">
       </div>
     </div>
   </div>
@@ -284,23 +304,65 @@
 <script>
 (()=>{
   const isl=document.getElementById('isl'),btns=[...document.querySelectorAll('.demo button')];
-  const order=['music','message','focus','pods','big'];let i=0,timer,auto=true;
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // the same rhythm as the app: idle, something arrives, it folds away again
+  const order=['message','music','hud','agent','big'];let i=-1,t1,t2,auto=true;
   function show(k){
     i=order.indexOf(k);
-    isl.dataset.size=k==='big'?'big':'peek';
-    isl.querySelectorAll('.act').forEach(a=>a.classList.toggle('on',a.dataset.act===k));
+    isl.dataset.state=k==='big'?'big':(k==='idle'?'idle':'peek');
+    isl.dataset.act=k;
+    isl.querySelectorAll('.irow').forEach(r=>r.classList.toggle('on',r.dataset.act===k));
     btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.go===k));
+    isl.classList.remove('glowing');
+    if((k==='message'||k==='agent')&&!reduce){void isl.offsetWidth;isl.classList.add('glowing')}
+    if(k==='hud'&&!reduce){let v=40;const n=isl.querySelector('[data-vol]'),b=isl.querySelector('.lvl b');
+      const step=setInterval(()=>{v=Math.min(62,v+4);n.textContent=v;b.style.width=v+'%';if(v>=62)clearInterval(step)},90)}
   }
-  function loop(){clearInterval(timer);if(!auto||reduce)return;timer=setInterval(()=>show(order[(i+1)%order.length]),3600)}
-  btns.forEach(b=>b.addEventListener('click',()=>{auto=false;clearInterval(timer);show(b.dataset.go)}));
-  isl.addEventListener('click',()=>{auto=false;clearInterval(timer);show(isl.dataset.size==='big'?'music':'big')});
-  // tiny live focus countdown
-  let s=24*60+12;setInterval(()=>{s=s>0?s-1:25*60;document.querySelectorAll('[data-timer]').forEach(t=>t.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0'))},1000);
-  // start collapsed, then open: one orchestrated entrance
-  isl.dataset.size='mini';isl.querySelectorAll('.act').forEach(a=>a.classList.remove('on'));
-  setTimeout(()=>{show('music');loop()},reduce?0:900);
+  function next(){
+    if(!auto)return;
+    const k=order[(i+1)%order.length];
+    show(k);
+    // fold back to the small island between activities, like the real one does
+    t2=setTimeout(()=>{if(auto){show('idle');isl.dataset.act=k==='music'?'music':'idle'}},k==='big'?3800:2800);
+  }
+  function loop(){clearInterval(t1);if(reduce){show('big');return}t1=setInterval(next,4300)}
+  function stop(){auto=false;clearInterval(t1);clearTimeout(t2)}
+  btns.forEach(b=>b.addEventListener('click',()=>{stop();show(b.dataset.go)}));
+  isl.addEventListener('click',()=>{stop();show(isl.dataset.state==='big'?'idle':'big')});
+  show('idle');
+  setTimeout(()=>{next();loop()},reduce?0:900);
 })();
+
+// smooth accordion: animate the height when a question opens or closes
+document.querySelectorAll('.faq details').forEach(d=>{
+  const sum=d.querySelector('summary'),body=d.querySelector('p');
+  sum.addEventListener('click',e=>{
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    e.preventDefault();
+    if(d.dataset.busy)return;d.dataset.busy=1;
+    const start=d.offsetHeight;
+    if(d.open){
+      const end=sum.offsetHeight+parseFloat(getComputedStyle(d).paddingTop)+parseFloat(getComputedStyle(d).paddingBottom);
+      d.classList.add('closing');
+      d.animate({height:[start+'px',end+'px']},{duration:320,easing:'cubic-bezier(.3,.7,.2,1)'}).onfinish=()=>{d.open=false;d.classList.remove('closing');delete d.dataset.busy};
+    }else{
+      d.open=true;const end=d.offsetHeight;
+      body.animate({opacity:[0,1],transform:['translateY(-6px)','none'],filter:['blur(4px)','blur(0)']},{duration:380,easing:'ease-out'});
+      d.animate({height:[start+'px',end+'px']},{duration:360,easing:'cubic-bezier(.3,.7,.2,1)'}).onfinish=()=>{delete d.dataset.busy};
+    }
+  });
+});
+</script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+// smooth, weighted scrolling (off with Reduce Motion)
+if(window.Lenis&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const lenis=new Lenis({lerp:.1,smoothWheel:true});
+  (function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(performance.now());
+  document.querySelectorAll('a[href^="#"],a[href^="/#"]').forEach(a=>a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').replace('/','');const el=id.length>1&&document.querySelector(id);
+    if(el&&location.pathname==='/'){e.preventDefault();lenis.scrollTo(el,{offset:-70})}}));
+}
 </script>
 </body>
 </html>
