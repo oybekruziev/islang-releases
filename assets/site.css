@@ -293,7 +293,7 @@ footer .soc a:hover{color:var(--text)}
 .deal-l::before{content:"";position:absolute;inset:-40% -30% auto;height:70%;background:var(--dusk);filter:blur(70px);opacity:.22;pointer-events:none}
 .deal-l>*{position:relative}
 .tag2{font-size:13px;font-weight:600;color:#000;background:#fff;border-radius:999px;padding:5px 12px}
-.deal .amount{font-size:112px;margin:18px 0 0}
+.deal .amount{font-size:96px;margin:18px 0 0;white-space:nowrap}
 .once{color:var(--text2);font-size:15px;margin-bottom:26px}
 .buywrap{position:relative;width:100%;isolation:isolate}
 .buy{width:100%;height:54px;font-size:16px;font-weight:600;position:relative}
