@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/lenis.css">
-<link rel="stylesheet" href="/assets/site.css?v=1795691233">
+<link rel="stylesheet" href="/assets/site.css?v=1795691491">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Islang","operatingSystem":"macOS 14 or later","applicationCategory":"UtilitiesApplication","description":"A live island for the MacBook notch with music controls, calendar, focus timer, AirPods battery, a shared clipboard and pixel pets.","url":"https://islang.xyz/","image":"https://islang.xyz/img/og.jpg","softwareVersion":"0.10","author":{"@type":"Person","name":"Oybek Ruziev","url":"https://aidancreates.space","sameAs":["https://x.com/aidan_creates","https://instagram.com/ruziev_oybek_","https://threads.com/@ruziev_oybek_","https://youtube.com/@aidancreatesspace","https://linkedin.com/in/oybekruziev","https://github.com/oybekruziev"]},"offers":{"@type":"Offer","price":"12","priceCurrency":"USD","url":"https://buy.polar.sh/polar_cl_jzejOnnoJKnUOzVvu8drq5IjTSCk9HWBKVAUm0XifPE"}}
 </script>
@@ -311,9 +311,8 @@
   const isl=document.getElementById('isl'),btns=[...document.querySelectorAll('.demo button')];
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   // the same rhythm as the app: idle, something arrives, it folds away again
-  const order=['message','music','hud','agent','big'];let i=-1,t1,t2,auto=true;
+  const order=['message','music','hud','agent','big'];let step=-1,t1,t2,auto=true;
   function show(k){
-    i=order.indexOf(k);
     isl.dataset.state=k==='big'?'big':(k==='idle'?'idle':'peek');
     isl.dataset.act=k;
     isl.querySelectorAll('.irow').forEach(r=>r.classList.toggle('on',r.dataset.act===k));
@@ -325,15 +324,17 @@
   }
   function next(){
     if(!auto)return;
-    const k=order[(i+1)%order.length];
+    step=(step+1)%order.length;const k=order[step];
     show(k);
     // fold back to the small island between activities, like the real one does
     t2=setTimeout(()=>{if(auto){show('idle');isl.dataset.act=k==='music'?'music':'idle'}},k==='big'?3800:2800);
   }
   function loop(){clearInterval(t1);if(reduce){show('big');return}t1=setInterval(next,4300)}
   function stop(){auto=false;clearInterval(t1);clearTimeout(t2)}
-  btns.forEach(b=>b.addEventListener('click',()=>{stop();show(b.dataset.go)}));
-  isl.addEventListener('click',()=>{stop();show(isl.dataset.state==='big'?'idle':'big')});
+  btns.forEach(b=>b.addEventListener('click',()=>{stop();show(b.dataset.go);step=order.indexOf(b.dataset.go);resume()}));
+  isl.addEventListener('click',()=>{stop();const k=isl.dataset.state==='big'?'idle':'big';show(k);if(k==='big')step=order.indexOf('big');resume()});
+  // after you click something, the tour starts again on its own a little later
+  let rt;function resume(){clearTimeout(rt);rt=setTimeout(()=>{auto=true;next();loop()},9000)}
   show('idle');
   setTimeout(()=>{next();loop()},reduce?0:900);
 })();
