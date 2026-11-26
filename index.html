@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ledgeling — a notch island with pixel friends for your Mac</title>
+<meta name="description" content="Ledgeling turns the MacBook notch into a living island — music, calendar, weather, notifications, focus, clipboard — and lets tiny pixel animals live on your screen.">
+<meta property="og:title" content="Ledgeling for Mac">
+<meta property="og:description" content="A notch island with pixel friends. Music, weather, calendar, notifications, focus and more — right under your notch.">
+<meta property="og:image" content="icon.png">
+<link rel="icon" href="icon.png">
+<style>
+  :root {
+    --bg: #0b0b0d; --surface: #161619; --line: rgba(255,255,255,.08);
+    --ink: #f4f4f6; --ink2: #b8b8c0; --muted: #7c7c86;
+    --accent: #ff9f0a; --blue: #0a84ff; --green: #30d158; --pink: #ff375f; --purple: #bf5af2;
+    --radius: 22px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  img.px { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+  /* nav */
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; text-decoration: none; }
+  .brand img { width: 30px; height: 30px; border-radius: 8px; }
+  nav .links { display: flex; gap: 22px; font-size: 15px; color: var(--ink2); }
+  nav .links a { text-decoration: none; }
+  nav .links a:hover { color: var(--ink); }
+
+  /* hero */
+  .hero { text-align: center; padding: 56px 0 40px; }
+  .screen { position: relative; margin: 0 auto 48px; max-width: 760px; height: 300px; border-radius: 26px;
+            background: radial-gradient(120% 90% at 50% 0%, #2a2f47 0%, #15161d 55%, #0e0e11 100%);
+            border: 1px solid var(--line); overflow: hidden; }
+  .island { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 430px; max-width: 86%;
+            background: #000; border-radius: 0 0 26px 26px; padding: 14px 18px 16px; text-align: left;
+            box-shadow: 0 18px 40px rgba(0,0,0,.5); animation: grow 7s ease-in-out infinite; }
+  @keyframes grow { 0%,12% { width: 200px; } 22%,78% { width: 430px; } 88%,100% { width: 200px; } }
+  .island .row { display: flex; align-items: center; gap: 12px; white-space: nowrap; overflow: hidden; }
+  .island .art { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #ff6a3d, #bf5af2); flex: none; }
+  .island .t1 { font-weight: 600; font-size: 14px; }
+  .island .t2 { font-size: 12px; color: var(--ink2); }
+  .bars { margin-left: auto; display: flex; gap: 3px; align-items: flex-end; height: 18px; }
+  .bars i { width: 3px; background: var(--blue); border-radius: 2px; animation: b 1s ease-in-out infinite; }
+  .bars i:nth-child(2) { animation-delay: .2s } .bars i:nth-child(3) { animation-delay: .4s } .bars i:nth-child(4) { animation-delay: .1s }
+  @keyframes b { 0%,100% { height: 5px } 50% { height: 18px } }
+  .island .progress { margin-top: 12px; height: 4px; border-radius: 4px; background: rgba(255,255,255,.12); overflow: hidden; }
+  .island .progress b { display: block; height: 100%; width: 62%; background: var(--pink); }
+  .ledge { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: rgba(255,255,255,.12); }
+  .walker { position: absolute; bottom: 2px; height: 120px; }
+  .walker.fox { animation: walk 16s linear infinite; }
+  @keyframes walk { from { left: -200px; } to { left: 100%; } }
+  .walker.cat { left: 12%; } .walker.panda { right: 10%; } .walker.penguin { left: 58%; height: 96px; }
+
+  h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.05; letter-spacing: -.035em; font-weight: 800; }
+  h1 span { color: var(--accent); }
+  .lead { max-width: 640px; margin: 18px auto 0; color: var(--ink2); font-size: 19px; }
+  .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; font-size: 16px; transition: transform .15s, background .15s; }
+  .btn:active { transform: scale(.97); }
+  .btn.primary { background: var(--ink); color: #000; }
+  .btn.primary:hover { background: #fff; }
+  .btn.ghost { border: 1px solid var(--line); background: rgba(255,255,255,.04); }
+  .btn.ghost:hover { background: rgba(255,255,255,.09); }
+  .note { margin-top: 14px; font-size: 14px; color: var(--muted); }
+
+  /* features */
+  section { padding: 64px 0; }
+  h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.025em; line-height: 1.1; font-weight: 800; }
+  .sub { color: var(--ink2); margin-top: 10px; max-width: 620px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 32px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .card .ic { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-size: 18px; margin-bottom: 14px; }
+  .card h3 { font-size: 17px; margin-bottom: 6px; letter-spacing: -.01em; }
+  .card p { color: var(--ink2); font-size: 15px; }
+
+  .pets { display: flex; justify-content: center; align-items: flex-end; gap: 8px; flex-wrap: wrap; margin-top: 34px; }
+  .pets figure { text-align: center; }
+  .pets img { height: 150px; }
+  .pets figcaption { font-size: 13px; color: var(--muted); margin-top: -6px; }
+
+  /* price */
+  .price { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: 36px; }
+  .amount { font-size: 64px; font-weight: 800; letter-spacing: -.04em; }
+  .amount small { font-size: 18px; color: var(--muted); font-weight: 500; letter-spacing: 0; }
+  ul.check { list-style: none; display: grid; gap: 8px; color: var(--ink2); }
+  ul.check li::before { content: "✓"; color: var(--green); font-weight: 700; margin-right: 10px; }
+
+  /* faq + legal */
+  details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+  summary { cursor: pointer; font-weight: 600; list-style: none; }
+  summary::after { content: "+"; float: right; color: var(--muted); }
+  details[open] summary::after { content: "–"; }
+  details p { color: var(--ink2); margin-top: 10px; }
+  .legal { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; margin-top: 20px; }
+  .legal h3 { margin: 22px 0 6px; font-size: 17px; }
+  .legal h3:first-of-type { margin-top: 14px; }
+  .legal p, .legal li { color: var(--ink2); font-size: 15px; }
+  .legal ul { padding-left: 20px; display: grid; gap: 4px; }
+  footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--line); margin-top: 40px; }
+
+  @media (max-width: 820px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    .price { grid-template-columns: 1fr; }
+    nav .links { display: none; }
+  }
+  @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } .screen { height: 240px; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="#"><img src="icon.png" alt="">Ledgeling</a>
+    <div class="links">
+      <a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="screen" aria-hidden="true">
+      <div class="island">
+        <div class="row">
+          <div class="art"></div>
+          <div><div class="t1">Now playing</div><div class="t2">Your favourite song</div></div>
+          <div class="bars"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="progress"><b></b></div>
+      </div>
+      <img class="px walker cat" src="cat.webp" alt="">
+      <img class="px walker penguin" src="penguin.webp" alt="">
+      <img class="px walker panda" src="panda.webp" alt="">
+      <img class="px walker fox" src="fox.webp" alt="">
+      <div class="ledge"></div>
+    </div>
+    <h1>Your notch, <span>alive.</span></h1>
+    <p class="lead">Ledgeling turns the MacBook notch into a smart island — music, weather, calendar, messages, focus and your clipboard — while tiny pixel friends live on the edge of your screen.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/oybekruziev/ledgeling-releases/releases/latest">Download free trial</a>
+      <a class="btn ghost" href="https://buy.polar.sh/polar_cl_jzejOnnoJKnUOzVvu8drq5IjTSCk9HWBKVAUm0XifPE">Buy — $12</a>
+    </div>
+    <p class="note">7 days free · macOS 14 Sonoma or later · Apple silicon &amp; Intel · signed &amp; notarized by Apple</p>
+  </header>
+
+  <section id="features">
+    <h2>Everything lives under the notch.</h2>
+    <p class="sub">Hover or click the island to open it. Glance at what matters, then get back to work.</p>
+    <div class="grid">
+      <div class="card"><div class="ic" style="background:#ff375f22">🎵</div><h3>Now playing</h3><p>Artwork, live sound bars and controls for Music, Spotify and the browser.</p></div>
+      <div class="card"><div class="ic" style="background:#0a84ff22">⛅</div><h3>Weather &amp; calendar</h3><p>Today's forecast hour by hour, the month at a glance and your next meeting with a join button.</p></div>
+      <div class="card"><div class="ic" style="background:#30d15822">💬</div><h3>Messages, quietly</h3><p>Notifications show up on the island with the app's icon. Open the exact chat — or reply right there.</p></div>
+      <div class="card"><div class="ic" style="background:#ff9f0a22">⏱</div><h3>Focus</h3><p>A Pomodoro timer with tasks, daily stats and a little celebration when you finish.</p></div>
+      <div class="card"><div class="ic" style="background:#bf5af222">📋</div><h3>Clipboard &amp; files</h3><p>Clipboard history, a colour picker and a shelf to park files while you drag them around.</p></div>
+      <div class="card"><div class="ic" style="background:#64d2ff22">🔊</div><h3>Volume &amp; brightness</h3><p>A clean island HUD replaces the big system overlay.</p></div>
+      <div class="card"><div class="ic" style="background:#ffd60a22">⌨️</div><h3>⌥⌘K palette</h3><p>Open apps, do quick maths, add a task or a reminder — without leaving the keyboard.</p></div>
+      <div class="card"><div class="ic" style="background:#63e6e222">🌐</div><h3>Internet &amp; Mac</h3><p>Live network speed with a one-click speed test, plus CPU, memory and battery.</p></div>
+      <div class="card"><div class="ic" style="background:#ff6b8b22">🐾</div><h3>Pixel friends</h3><p>Pets walk, nap and cheer you on across all your displays. Feed them treats, level them up.</p></div>
+    </div>
+    <div class="pets">
+      <figure><img class="px" src="cat.webp" alt="Miso the cat"><figcaption>Miso</figcaption></figure>
+      <figure><img class="px" src="dog.webp" alt="Waffles the beagle"><figcaption>Waffles</figcaption></figure>
+      <figure><img class="px" src="fox.webp" alt="Ember the fox"><figcaption>Ember</figcaption></figure>
+      <figure><img class="px" src="panda.webp" alt="Bao the panda"><figcaption>Bao</figcaption></figure>
+      <figure><img class="px" src="penguin.webp" alt="Pingu the penguin"><figcaption>Pingu</figcaption></figure>
+      <figure><img class="px" src="giraffe.webp" alt="Twiga the giraffe"><figcaption>Twiga</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="price">
+      <div>
+        <h2>One price. Yours forever.</h2>
+        <p class="sub">Try everything free for 7 days. If you love it, one license unlocks Ledgeling for good — with free updates delivered right inside the app.</p>
+        <div class="cta" style="justify-content:flex-start">
+          <a class="btn primary" href="https://buy.polar.sh/polar_cl_jzejOnnoJKnUOzVvu8drq5IjTSCk9HWBKVAUm0XifPE">Buy Ledgeling</a>
+          <a class="btn ghost" href="https://github.com/oybekruziev/ledgeling-releases/releases/latest">Try free</a>
+        </div>
+      </div>
+      <div>
+        <div class="amount">$12 <small>one-time</small></div>
+        <ul class="check">
+          <li>Use on up to 3 of your Macs</li>
+          <li>All features and all pixel friends</li>
+          <li>Free updates</li>
+          <li>14-day money-back guarantee</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Questions</h2>
+    <details><summary>Does it work on Macs without a notch?</summary><p>Yes. On other Macs and on external displays the island sits at the top centre of the screen and works the same way.</p></details>
+    <details><summary>Which permissions does it ask for, and why?</summary><p>Accessibility (to show volume, brightness and notification banners on the island and to open the right chat), Notifications (for your own focus and reminder alerts), Calendar (to show your events), and Location (only for the weather — rounded to about 1 km). Every permission is optional; features that need one simply stay off.</p></details>
+    <details><summary>How do I activate my license?</summary><p>After purchase you get a key by email (and in your Polar customer portal). Open Ledgeling → Settings → License, paste the key and click Activate.</p></details>
+    <details><summary>I got a new Mac. Can I move my license?</summary><p>Yes. A key works on 3 Macs at a time. You can free a Mac from the Polar customer portal, or click Deactivate in Ledgeling's settings on the old Mac.</p></details>
+    <details><summary>How do updates work?</summary><p>Ledgeling checks for a new version a few times a day. When one is ready it appears on the island — one click installs it. Every update is signed and verified before it replaces the app.</p></details>
+    <details><summary>Something isn't working.</summary><p>Open Settings → Report a problem. It opens an email with your Mac and app version filled in, so we can help fast.</p></details>
+  </section>
+
+  <section id="privacy">
+    <h2>Privacy</h2>
+    <div class="legal">
+      <p>Ledgeling is built to keep your data on your Mac. There is no account, no tracking, no analytics and no ads.</p>
+      <h3>What stays on your Mac</h3>
+      <ul>
+        <li>Notifications that Ledgeling shows on the island, your clipboard history, tasks, reminders, focus stats and pet progress are stored only on your Mac.</li>
+        <li>Calendar events are read on your Mac to show them; they are never uploaded.</li>
+        <li>Sound levels for the music bars are measured on your Mac and are never recorded or sent.</li>
+      </ul>
+      <h3>What goes over the internet</h3>
+      <ul>
+        <li><b>Weather:</b> your location, rounded to about 1 km, is sent to Open-Meteo to get the forecast.</li>
+        <li><b>Speed test:</b> only when you press it, test data is downloaded from and uploaded to Cloudflare.</li>
+        <li><b>Updates:</b> Ledgeling asks GitHub whether a new version exists.</li>
+        <li><b>License:</b> your license key and your Mac's name are sent to Polar to activate and occasionally verify the license.</li>
+      </ul>
+      <h3>Payments</h3>
+      <p>Purchases are handled by Polar (polar.sh), the merchant of record, which processes your payment and email under its own privacy policy. We never see your card details.</p>
+      <h3>Contact</h3>
+      <p>Questions about privacy: <a href="mailto:r.oybek2001@gmail.com">r.oybek2001@gmail.com</a></p>
+    </div>
+  </section>
+
+  <section id="refund">
+    <h2>Refunds</h2>
+    <div class="legal">
+      <p>Try Ledgeling free for 7 days before you buy. If it still isn't right for you, write to <a href="mailto:r.oybek2001@gmail.com">r.oybek2001@gmail.com</a> within 14 days of purchase and you'll get a full refund — no questions asked. Refunds are issued through Polar to your original payment method, and the license key is deactivated.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Aidan Creates · Ledgeling for Mac</span>
+    <span><a href="#privacy">Privacy</a> · <a href="#refund">Refunds</a> · <a href="mailto:r.oybek2001@gmail.com">Contact</a></span>
+  </footer>
+</div>
+</body>
+</html>
